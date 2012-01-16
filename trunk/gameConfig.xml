@@ -1,4 +1,4 @@
-<JSRPGConfig initEvent="game/content/wakeup.xml">
+<JSRPGConfig initEvent="game/content/rodent_fight.xml">
 	<globalConstants>
 		
 	</globalConstants>
