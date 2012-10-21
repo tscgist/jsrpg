@@ -1,0 +1,70 @@
+html,body	{
+	background:black;
+	color:#dfe;
+	font-size:1.4em;
+	font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+}
+
+#mainStage  {
+	padding:1em;
+	background:url('img/circuit-bg.png');
+	height:100%;
+}
+
+#eventLoader    {
+	text-align:center;
+}
+
+#viewContainer, #uiContainer	{
+	border:3px solid #333;
+	padding:1em;
+}
+
+#viewContainer	{
+	border-bottom:0px;
+	background:url('img/screen.jpg');
+	background-size:100%;
+	overflow:auto;
+	height:580px;
+}
+
+#viewContainer p	{
+	margin-bottom:1em;
+}
+
+#viewContainer p:last-child	{
+	margin-bottom:0em;
+}
+
+#uiContainer	{
+	background:url('img/circ2.png');
+}
+
+#uiContainer button	{
+	font-size:inherit;
+}
+
+.statChange	{
+	font-weight:bold;
+	font-style:normal;
+	font-family: 'Lucida Console', Monaco, monospace;
+}
+
+.statChange.positive	{
+	color:#28d;
+}
+
+.statChange.negative	{
+	color:#c81;
+}
+
+.playerAction	{
+	padding:1em;
+	background:black;
+	color:#fff;
+	font-style:italic;
+}
+
+.playerAction strong	{
+	font-weight:bold;
+}
