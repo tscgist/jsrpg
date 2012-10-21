@@ -1,0 +1,27 @@
+Strength		STR
+Endurance		END
+Dexterity		DEX
+Perception		PER
+Charisma		CHR
+Intelligence	INT
+
+stat circle:
+
+STR > END > INT > PER > DEX > CHR
+
+class combinations: what dost thou value above all else?
+
+STR, END, INT*	monk - the grounded badger
+	base hp: 40
+END, INT, PER*	ranger - the all-seeing owl
+	base hp: 40
+INT, PER, DEX*	thief - the clever raccoon
+	base hp: 30
+PER, DEX, CHR*	bard - the capricious fox
+	base hp: 30
+DEX, CHR, STR*	hero - the proud wolf
+	base hp: 50
+CHR, STR, END*	crusader - the unyeilding bear
+	base hp: 50
+
+HP: (base hp) + (STR * 1) + (END * 2)

@@ -1,0 +1,14 @@
+stat-based perks - 
+
+STR
+ - stagger bonus - (current level / 2) is strength bonus to stagger
+END
+ - stagger resist - (current level / 2) is endurance bonus to resist stagger
+DEX
+ - bonus to hit
+PER
+ - bonus to dodge
+CHR
+ - penalty to enemy to-hit
+KNW
+ - improved mastery

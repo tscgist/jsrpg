@@ -1,0 +1,26 @@
+support - 
+ - buffs
+ - debuffs
+ - tank
+
+dps - 
+ - dot
+ - crit
+ - nuke
+ 
+damage dealing:
+ - layered damage over time
+ - creshendo damage, starts small but chains for huge damage multiplier
+ - nuking for huge damage swings, infrequently
+ - queuing up lots of small attacks, hoping for a lucky crit
+ - reflecting damage while keeping self alive
+ - buffing any of the above
+
+damage mitigation:
+ - dodging incomming attacks, avoiding all damage
+ - blocking / absorbing incomming attacks, reducing damage taken
+ - healing (nuke all at once, or dot a bit at a time)
+ - healing from damage dealt (vampirism)
+ - disengage / fade - escape from battle
+ - damage 'sharing' with ally
+ - buffing any of the above

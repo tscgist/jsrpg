@@ -1,0 +1,124 @@
+STR, END, INT*	monk - the grounded badger
+	base hp: 40
+END, INT, PER*	ranger - the all-seeing owl
+	base hp: 40
+INT, PER, DEX*	thief - the clever raccoon
+	base hp: 30
+PER, DEX, CHR*	bard - the capricious fox
+	base hp: 30
+DEX, CHR, STR*	hero - the proud wolf
+	base hp: 50
+CHR, STR, END*	crusader - the unyeilding bear
+	base hp: 50
+    
+Classes:
+    
+Class       Prime   Sec    	baseHP	Sign
+Monk        INT     STR,END	40		Badger
+Ranger      PER     END,INT	40		Owl
+Thief       DEX     INT,PER	30		Crow
+Bard        CHR     PER,DEX	30		Fox
+Hero        STR     DEX,CHR	50		Hawk
+Crusader    END     CHR,STR	50		Bear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+but what if we shifted the stats around so they were more like this -
+
+	STR > PER > DEX > INT > CHR > END
+
+Type    CHR-class   non-CHR-class
+Corner  Crusader    Thief
+Split   Hero        Ranger
+Bridge  Bard        Monk
+
+all corners:
+1a  END, STR, PER	Brawler, Fighter, Barbarian, Knight
+2a  STR, PER, DEX	Slayer, Assassin, Ninja
+3a  PER, DEX, INT	Hunter, Ranger, Tracker, Scout
+1b  DEX, INT, CHR	Daredevil, Acrobat, Thief
+2b  INT, CHR, END	Guru, Monk
+3b  CHR, END, STR	Champion, Paladin, Crusader
+
+all possible combinations: (60)
+
+{STR,PER,DEX}	
+{STR,PER,END}
+{STR,PER,INT}
+{STR,PER,CHR}
+{STR,DEX,END}
+{STR,DEX,INT}
+{STR,DEX,CHR}
+{STR,END,INT}
+{STR,END,CHR}
+{STR,INT,CHR}
+
+{PER,STR,DEX}
+{PER,STR,END}
+{PER,STR,INT}
+{PER,STR,CHR}
+{PER,DEX,END}
+{PER,DEX,INT}
+{PER,DEX,CHR}
+{PER,END,INT}
+{PER,END,CHR}
+{PER,INT,CHR}
+
+{DEX,STR,PER}
+{DEX,STR,END}
+{DEX,STR,INT}
+{DEX,STR,CHR}
+{DEX,PER,END}
+{DEX,PER,INT}
+{DEX,PER,CHR}
+{DEX,END,INT}
+{DEX,END,CHR}
+{DEX,INT,CHR}
+
+{END,STR,PER}
+{END,STR,DEX}
+{END,STR,INT}
+{END,STR,CHR}
+{END,PER,DEX}
+{END,PER,INT}
+{END,PER,CHR}
+{END,DEX,INT}
+{END,DEX,CHR}
+{END,INT,CHR}
+
+{INT,STR,PER}
+{INT,STR,DEX}
+{INT,STR,END}
+{INT,STR,CHR}
+{INT,PER,DEX}
+{INT,PER,END}
+{INT,PER,CHR}
+{INT,DEX,END}
+{INT,DEX,CHR}
+{INT,END,CHR}
+
+{CHR,STR,PER}
+{CHR,STR,DEX}
+{CHR,STR,END}
+{CHR,STR,INT}
+{CHR,PER,DEX}
+{CHR,PER,END}
+{CHR,PER,INT}
+{CHR,DEX,END}
+{CHR,DEX,INT}
+{CHR,END,INT}

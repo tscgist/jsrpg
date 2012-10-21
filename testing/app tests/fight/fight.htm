@@ -1,0 +1,263 @@
+<html>
+	<head>
+		<title>fight test</title>
+		<style type="text/css">
+			#log	{
+				height:200px;
+				overflow:auto;
+			}
+			#fighters>li	{
+				float:left;
+				margin-right:1em;
+			}
+			#player-controls	{
+				clear:both;
+			}	
+			.statlist dt	{
+				font-weight:bold;
+				clear:both;
+			}
+			.statlist dt, .statlist dd	{
+				display:block;
+				float:left;
+			}
+			.commands	{
+				clear:both;
+			}
+		</style>
+	</head>
+	<body>
+		
+			<!--	running combat act log	-->
+		
+		<ol id="log"></ol>
+		
+			<!--	battle participants	view	-->
+		
+		<ul id="fighters"></ul>
+		
+			<!--	libraries	-->
+		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+		
+			<!--	tmpl	-->
+		
+		<script id="fighter_li" type="text/x-jquery-tmpl">
+			<li id="${id}">
+				<h2>${name}</h2>
+				<dl class="statlist">
+					<dt>hp</dt><dd>${hp}</dd>
+					<dt>ap</dt><dd>${ap}</dd>
+				</dl>
+				<nav class="commands">
+					<ul></ul>
+				</nav>
+			</li>
+		</script>
+		
+		<script id="command_li" type="text/x-jquery-tmpl">
+			<li><button type="button" name="${id}">${name}</button></li>
+		</script>
+		
+			<!--	javascript	-->
+		
+		<script type="text/javascript">
+			
+				//	global game objects, should be externalized as library objects eventually
+			
+			var Actions = {
+				BasicAttack:{
+					id:'',
+					name:'attack',
+					description:'a basic physical attack',
+					apCost:10,
+					act:function(current,target){
+						var damage = current.str;
+						target.hp -= damage;
+						log(current.name, 'attacks', target.name, 'for', damage, 'damage!');
+					}
+				},
+				Rest:{
+					id:'',
+					name:'rest',
+					description:'take no action, recover some ap',
+					apCost:0,
+					act:function(current){
+						var newAP = current.apRegen*2;
+						current.ap += newAP;
+						log(current.name, 'rests to restore', newAP + 'ap.');
+					}
+				},
+				HeavySwing:{
+					name:'special',
+					description:'throw your weight into a strong attack',
+					apCost:25,
+					act:function(current,target){
+						var damage = current.str * 3;
+						target.hp -= damage;
+						log(current.name, 'attacks', target.name, 'for', damage, 'damage!');
+					}
+				}
+			};
+			for(var i in Actions){Actions[i].id = i;}	//	make sure ids are properly set for future reference
+			
+			var Fighter = function(){
+				
+				this.name = 'fighter';
+				this.id = 0;	//	auto-assigned by controller according to view order, for future reference
+				this.pc = false;
+				this.team = 0;
+				
+				this.hp = 20;
+				this.str = 1;
+				
+				this.ap = 0;
+				this.apRegen = 10;
+				this.apMax = 100;
+				this.acted = true;
+				
+				this.actions = [
+					Actions.BasicAttack,
+					Actions.HeavySwing,
+					Actions.Rest
+				]
+				
+				this.act = function(a,target){
+					var action = Actions[a];
+					if(action.apCost > this.ap){
+						log(this.name, 'needs', action.apCost + 'ap', 'to use', '\''+action.name+'\'');
+					}else{
+						action.act(this,target);
+						this.ap -= action.apCost;
+						this.acted = true;
+						tick();
+					}
+				}
+				
+				this.stepUpkeep = function(){
+				
+				}
+				this.roundUpkeep = function(){
+					this.acted = false;
+					this.ap += this.apRegen;
+					if(this.ap > this.apMax){this.ap = this.apMax;}
+				}
+			}
+			
+				//	test data, should be populated from xml eventually
+			
+			var player = new Fighter();
+				player.name = 'player';
+				player.pc = true;
+				player.team = 0;
+			
+			var foe = new Fighter();
+				foe.name = 'monster';
+				foe.pc = false;
+				foe.team = 1;
+			
+			var fighters = [player,foe];
+			for(var i = 0; i < fighters.length; i++){
+				fighters[i].id = fighters[i].name + i;
+			}
+			
+				//	view helper render stuff
+			
+			function log(){
+				$('#log').append($('<li></li>').text($.makeArray(arguments).join(' ')).attr('value',+new Date)).scrollTop($('#log')[0].scrollHeight);
+			}
+			
+				//	main loop
+			
+			function tick(){
+			
+					// rebuild view, determine active fighter
+			
+				$('#fighters').empty();
+				
+				var actRemaining = false;
+				for(var i in fighters){
+					if(fighters[i].acted == false){
+						actRemaining = true;
+						break;
+					}
+				}
+				
+				if(actRemaining == false){
+					$(fighters).each(function(){
+						this.roundUpkeep();	//	get background stat stuff out of the way
+					});
+				}
+				
+				$(fighters).each(function(){
+				
+					var $fighter_li = $('#fighter_li').tmpl(this);
+					
+					if(this.acted == false){
+						actsRemaining = true;
+						if(this.pc == true){	//	only pcs need interface options
+							$(this.actions).each(function(){
+								var $command_li = $('#command_li').tmpl(this);
+								$('.commands ul',$fighter_li).append($command_li);
+							});
+						}
+					}
+
+					$('#fighters').append($fighter_li);				
+					
+				});
+				
+				//	battle end conditions
+				
+					//	todo: if no exclusively computer-controlled team of fighters is left alive, then player wins
+				
+				if(foe.hp <= 0){
+					log(player.name, 'wins!');
+					battleEnd(true);
+					return false;
+				}else if(player.hp <= 0){
+					log(player.name, 'is dead...');
+					battleEnd(false);
+					return false;
+				}
+				
+					//	determine actions
+				
+				if(player.acted == false){
+					$('#player-controls').show();
+					$('.commands ul li').on('click', 'button', function(){
+						player.act(this.name,foe);
+					});
+				}else if(foe.acted == false){
+					$('#player-controls').hide();
+					AIControl(foe);
+				}
+			}
+			
+				//	ai logic
+			
+			function AIControl(target){
+				target.act('BasicAttack',player);
+			}
+			
+				//	global state stuff, mostly win/lose
+			
+			function battleEnd(playerWon){
+				//	yay
+			}
+			
+				//	init event
+			
+			$(function(){
+			
+				log('start!');
+				
+					//	start first turn
+				
+				tick();
+			});
+			
+		</script>
+	</body>
+</html>

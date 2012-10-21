@@ -1,0 +1,23 @@
+moving between events and changing scenes burns daylight in 1 hour increments - and the planet enjoys a 20-hour day
+
+So -
+
+Hours   Period  Label
+1       2/0-1   Sunrise
+2       1-3     Dawn
+3       3-6     Morning
+1       6-7     Midday
+3       7-10    Afternoon
+2       10-12   Dusk
+1       12-13   Sunset
+3       13-16   Twilight
+1       16-17   Midnight
+3       17-2/0  Nighttime
+
+note that we see sunlight from 2/0-13, and moonlight from 10-3 - 13 hour periods of light each - and while there's never not a sun or a moon in the sky, there are regularly 3-hour periods featuring both of them (10-13 & 0-3)
+
+moonrise should maybe be tracked, but it doesn't matter as much. it's interesting, since noon or midday is exactly halfway through daylight, but midnight ends up lagging behind halfway through moonlight. There's probably math somewhere explaining why this is. reminds me of defining a new world with a myst book - it all falls together, because the math takes care of itself, even if you don't explicitly plan it that way.
+
+the day/night cycle has a few game implications:
+ - time-sensitive events and enouncter opportunities - monsters hide or come out to hunt, shops openor close, npcs are available or busy, maybe spells or artificants work differently, etc.
+ - and descriptions of scenes change - a graveyard at midnight may look very different than a graveyard at high noon.

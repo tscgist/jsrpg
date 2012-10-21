@@ -1,0 +1,5 @@
+<JSRPGConfig initEvent="game/content/wakeup.xml">
+	<globalConstants>
+		
+	</globalConstants>
+</JSRPGConfig>

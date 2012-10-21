@@ -1,0 +1,6 @@
+on landing a successful hit - 
+chance to stagger is... a long complicated formula
+
+once staggered - 
+	attacker's weapon mastery counts double
+	successive stagger chance is halved
