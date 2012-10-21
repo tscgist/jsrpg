@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>data screen test</title>
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js" type="text/javascript"></script>
+        <script src="jquery.store.js" type="text/javascript"></script>
+        <script src="jquery.tmpl.min.js" type="text/javascript"></script>
+        <script src="game.storage.js" type="text/javascript"></script>
+        <script type="text/javascript"> //  <![CDATA[
+            playerData = {name:'matt'};
+            playerData.age = 25;
+            playerData.fingers = ['leftPinkie'];
+            playerData.fingers.push('leftRing');
+            playerData.fingers[2] = 'leftMiddle';
+            
+            $(function(){
+                dataScreen();
+            });
+            
+            dataScreen = function(){
+                populateCurrentData();
+                populateSaveSlots();
+                $('#save-refresh-button').click(populateSaveSlots);
+                
+                //  $('.fullSaveSlot .slotSelectButton').live('click',selectSlot);
+                $('.fullSaveSlot .slotDeleteButton').live('click',deleteSlot);
+                
+                $('.blankSaveSlot .slotSelectButton').live('click',selectSlot);
+            }
+            
+            populateCurrentData = function(){
+                currentData = getSavedGame(0);
+                if(!currentData){
+                    currentData = playerData;
+                }
+                $('#saveSlot').tmpl(currentData).appendTo('#currentSaveData');
+                $('#currentSaveCode textarea').text(JSON.stringify(currentData));
+            }
+            
+            selectSlot = function(e){
+                var $target = $(e.target);
+                var slotID = $target.parent().data('index');
+                var gameCode = prompt('enter your game save code text here');
+                if(gameCode){
+                    saveGame(slotID, JSON.parse(gameCode));
+                }
+                populateSaveSlots();
+                return slotID;
+            }
+            
+            deleteSlot = function(e){
+                var $target = $(e.target);
+                var slotID = $target.parent().data('index');
+                clearSlot(slotID);
+                populateSaveSlots();
+            }
+            
+            populateSaveSlots = function(){
+                var $saveSlots = $($('#saveList').html(''));
+                var savedGames = getSavedGames();
+                for(var i = 0; i < savedGames.length; i++){
+                    var savedGame = savedGames[i];
+                    if(savedGame){
+                        $('.slotSelectButton', $('#fullSaveSlot').tmpl().data('index',i+1).appendTo('#saveList')).append($('#saveSlot').tmpl(savedGame));
+                    }else{
+                        $('#blankSaveSlot').tmpl().data('index',i+1).appendTo('#saveList');
+                    }
+                }
+            }
+            
+            //  ]]></script>
+    </head>
+    <body>
+        <h1>saves:</h1>
+        <button type="button" id="save-refresh-button">refresh list</button>
+        <div id="currentSaveData"></div>
+        <div id="currentSaveCode"><textarea>
+            
+        </textarea></div>
+        <script id="saveSlot" type="text/x-jquery-tmpl">
+            <div class="saveSlot">${name}</div>
+        </script>
+        <ol id="saveList"></ol>
+        <script id="fullSaveSlot" type="text/x-jquery-tmpl">
+            <li class="fullSaveSlot"><button type="button" class="slotSelectButton"></button> <button type="button" class="slotDeleteButton">delete</button></li>
+        </script>
+        <script id="blankSaveSlot" type="text/x-jquery-tmpl">
+            <li class="blankSaveSlot"><button type="button" class="slotSelectButton">empty save slot</button></li>
+        </script>
+    </body>
+</html>

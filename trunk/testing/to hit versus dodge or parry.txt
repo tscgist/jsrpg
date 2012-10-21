@@ -1,0 +1,6 @@
+to hit - 
+if they're dodging:
+	your weapon mastery versus the average of their dexterity and perception
+if they're parrying:
+
+roll 1d100
