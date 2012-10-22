@@ -1,0 +1,40 @@
+so for discovery / scouting / map generation, we're looking at starting at 0,0 and looking at what's around us. the idea is to condense things down a bit - I guess it's a bit of a roguelike, but you're looking at risk versus reward, with progress through both that particular playthrough and the game in general beginning to inform the ratio a bit, until you can be fairly confident about whether you view the risk as worth the reward.
+
+so I want to map out sort of a distribution of risk versus reward zones, points of high risk and high reward, points of low risk and low reward, and let things sort of smooth between those areas in a noisy gradient. You can reasonably certain that Mount Doom is going to be a difficult place to venture into, and that the surrounding areas will be appropriately difficult as well - but the Safe House and it's surrounding area will hardly merit any caution.
+
+I guess you could pre-generate that - otherwise you'd be generating the next tiles based on the surroundings, I guess? maybe you could pre-generate a map, then let the unexplored tiles be a certain degree of randomized? based on where you're at in the game? I mean, you could pre-generate the map layout itself, let the features and difficulty be set as you explore? maaaaybe.
+
+So on each tile:
+ - hazard - something dangerous
+ - treasure - something valuable you can posess
+ - ... and that gives us the risk versus reward rating
+ 
+I like the ideal of abilities influencing the raing for those two (risk vs reward) - if you're a paranoid player, you might not trust your memory, and overevaluate threats - same with fear or whatever. if you're greedy or desperate you might over-estimate the value, if you're depressed you might undervalue it, if you're overconfident you might underestmiate the threat. so those traits effect your perception of risk versus reward, but not the reality.
+
+in ascii:
+
+/12345
+a.....
+b.....
+c..@..
+d.....
+e.....
+
+d yx risk|reward: ratio
+
+n b3 2,2: 0		fair chance
+e c4 0,0: 0		boring
+s d3 1,0: -1	dangerous / not worthwhile
+w c2 2,3: 1		opportunity!
+
+... and of course this could be an automated way for an AI to navigate the tiled map - prefer exploration, low hanging fruit, until leveld or equipped to start exploring higher risk zones.
+
+so maybe this is, like, seer abilities? the gift of prophesy? maybe there's some sort of divine or supernatural or paramornal or magical excuse for why you can judge things so well?
+
+also, observation and scouting / tracking / experience could work to assess danger and treasure to a certain degree - maybe magic / telepathy / prophesy / whatever could be used to take it to another level? so you could have risk and reward assessment rating stats?
+
+factors:
+	- reports (talk to people)
+	- legends (research)
+	- observation
+	- magic
