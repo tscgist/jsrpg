@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div id="mapview"></div>
+		<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" src="underscore-min.js"></script>
+		<script type="text/javascript">
+			
+			var mapModel = [{x:0,y:0,name:'start'}]
+			
+			this.renderMapView = function(){
+				$(mapModel).each(function(){
+					console.log(this);
+				});
+			}
+			
+			this.generateNextTile = function(){
+				//	go go gadget magic miracle magnets
+			}
+			
+			this.arrowKeys = new function(){
+				this.up = this.north = 38;
+				this.right = this.east = 39;
+				this.down = this.south = 40;
+				this.left = this.west = 37;
+			}();
+			
+			this.move = function(_x, _y){
+				console.log('moving',_x,_y);
+				renderMapView();
+			}
+			
+			$(window).bind('keyup', function(e){
+				//	console.log(e.keyCode);
+				switch(e.keyCode){
+					case arrowKeys.up:
+						move(0,-1);
+					break;
+					case arrowKeys.right:
+						move(1,0);
+					break;
+					case arrowKeys.down:
+						move(0,1);
+					break;
+					case arrowKeys.left:
+						move(-1,0);
+					break;
+					default:
+						//	unrecognized keyboard input
+						//	console.log(e);
+					break;
+				}
+			});
+			
+			$(function(){
+				move(0,0);
+			});
+			
+		</script>
+	</body>
+</html>
