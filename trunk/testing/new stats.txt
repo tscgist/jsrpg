@@ -1,0 +1,21 @@
+so there's a stat that tracks how effective you are, on a percentage basis
+
+effectiveness
+capability
+readiness
+power
+health
+condition
+
+and a stat that reflects your resistance to negative changes to that stat
+
+defense
+resistance
+toughness
+resiliance
+endurance
+
+so the first describes how effectively you're able to utilize your abilities. the lower this rating, the less effective your abilites will be - the aim of your opponent is to lower this rating until you're effectively powerless.
+
+your resistance to your opponent's efforts is the second stat - if you have 100 points of effectiveness, and 50 points of resistance, that's the equivalent of 10 points of effectiveness and 500 points of resistance? I guess? So basically more HP and less defense, or less HP and more defense.
+
