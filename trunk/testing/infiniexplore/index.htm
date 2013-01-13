@@ -9,11 +9,28 @@
 		<script type="text/javascript" src="underscore-min.js"></script>
 		<script type="text/javascript">
 			
-			var mapModel = [{x:0,y:0,name:'start'}]
+			var mapModel = [
+				{x:-1,y:-1,type:'grass'},
+				{x:-1,y:0,type:'grass'},
+				{x:-1,y:1,type:'grass'},
+				{x:0,y:-1,type:'grass'},
+				{x:0,y:0,type:'start'},
+				{x:0,y:1,type:'grass'},
+				{x:1,y:-1,type:'grass'},
+				{x:1,y:0,type:'grass'},
+				{x:1,y:1,type:'grass'},
+			]
 			
 			this.renderMapView = function(){
+				$('#mapview').empty();
 				$(mapModel).each(function(){
-					console.log(this);
+					var tile = ()
+					if(){
+						
+					}else{
+						$('<div class="">.</div>'));
+					}
+					$('#mapview').append((player.x == this.x, player.y == this.y) ? $('<div class=""></div>') :);
 				});
 			}
 			
