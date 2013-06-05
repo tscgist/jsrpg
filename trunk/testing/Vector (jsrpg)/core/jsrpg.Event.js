@@ -21,11 +21,13 @@ JSRPG.Event = function(_eventXMLURL){
 
 	this.renderFrameElement = function(_$currentElementXML){
 		_this.$currentElementXML = _$currentElementXML;
-				console.log('...frameElement:',_this.$currentElementXML);
+			console.log('...frameElement:',_this.$currentElementXML);
 		$('#uiContainer').empty();
+
 		if(_this.$currentElementXML.attr('clear') == 'true'){
-			$('#viewContainer').empty();
+			$('#viewContainer').empty().scrollTo(0);
 		}
+		
 		switch(_this.$currentElementXML[0].tagName){
 			case 'decision':
 				_this.$currentElementXML.children('choice').each(function(){
@@ -61,6 +63,9 @@ JSRPG.Event = function(_eventXMLURL){
 				}
 			break;
 		}
+		
+		$('#viewContainer').scrollTo($('#viewContainer .playerAction:last'),'slow');
+		
 		$('#uiContainer button').eq(0).focus();
 	}
 	

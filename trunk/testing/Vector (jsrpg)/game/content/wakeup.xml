@@ -13,16 +13,16 @@
 				<p>You know the Wastelands better than most - you live on the Borderline, supporting yourself running scavange and fetch ops along with your...</p>
 				<p>... with your ...</p>
             ]]></exposition>
-			<exposition clear="true" next="what to do, what to do."><![CDATA[
+			<exposition next="what to do, what to do."><![CDATA[
 				<p>You snap your head back and forth, panicking as you realize you're alone - what happened to your crew? Unthinkingly you break into a job, promptly tripping over your own feet and crumpling to the ground again. Instinctually you pull your body into a roll - little habits like this have saved you countless times when you find yourself in danger of accidental exposure to the myriad of hazards encountered in the Wastelands.</p>
 				<p>A piercing headache twisting somewhere behind your eyes swings your mood from fear to a somewhat more reasonable general bad-temperedness; There's nothing nice about your homeland, and you're used to set-backs by now. A few more careful breaths and you're calm enough to slowly rise to your feet again, gritting your teeth and weighing your options.</p>
             ]]></exposition>
-			<exposition clear="true" next="calm down."><![CDATA[
+			<exposition next="calm down."><![CDATA[
 				<p>Worst-case senario: you've already been lethally dosed with something terrible - radioactivity, a virulent microbe, liquid or gaseous chemicals - and you're already dying. Not much you can do if that's the case, so you decide to operate on the assumpion that you may be fucked up, but you're not completely fucked.</p>
 				<p>The sun is near enough to the horizon that its outline has begun to shift and blur, its light filtered down to a spectrum of reds, oranges, and yellows. You figure you've got an hour at least before it sets, and you're far enough out into the Waste that you won't be able to make it back to the Borderline before nighfall - your comparitivly cozy homebase in Preck is easily 3-4 hours away.</p>
 				<p>You hope your crew has made it back on their own - you hope that you woke up first, and they'll be somewhere near at hand so you won't need to face the night alone. You hope when you find them they won't already have kicked it and you won't need to pick over their bodies and burn them and cobble together some sort of marker and...</p>
             ]]></exposition>
-			<exposition clear="true"><![CDATA[
+			<exposition><![CDATA[
 				<p>Okay, calm down. Things are bad, but you're a resourceful individual. You know how to survive out here. You need to find shelter ASAP, something out of the way of passive threats and reasonably inaccessible to not-so-passive ones. You slide your hand down to the sheath you wear at your thigh - the blade is still there, so at least you're not completely defensless.</p>
 				<p>If only all your essential gear could be kept on your person - but your Wasteland suit is built to let you travel light. You will need to scavange a bit for materials to cobble together a place to spend the night.</p>
             ]]></exposition>

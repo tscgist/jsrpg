@@ -21,7 +21,22 @@
                 padding:1em;
             }
         </style>
-        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="mainStage">
+            <div id="eventContainer">
+                <div id="eventLoader"><img src="ajax-loader.gif" /></div>
+                <div id="viewContainer"></div>
+                <div id="uiContainer"></div>
+            </div>
+        </div>
+		
+        <script id="choiceButton" type="text/x-jquery-tmpl">
+			<button type="button" class="choiceButton">${label}</button>
+        </script>
+		
+		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js" type="text/javascript"></script>
+		<script src="jquery.scrollto.js" type="text/javascript"></script>
         <script src="jquery.tmpl.min.js" type="text/javascript"></script>
         <script src="game.scene.js" type="text/javascript"></script>
         <script src="game.event.js" type="text/javascript"></script>
@@ -40,17 +55,5 @@
             });
             
             //  ]]></script>
-    </head>
-    <body>
-        <div id="mainStage">
-            <div id="eventContainer">
-                <div id="eventLoader"><img src="ajax-loader.gif" /></div>
-                <div id="viewContainer"></div>
-                <div id="uiContainer"></div>
-            </div>
-        </div>
-        <script id="choiceButton" type="text/x-jquery-tmpl">
-			<button type="button" class="choiceButton">${label}</button>
-        </script>
     </body>
 </html>
