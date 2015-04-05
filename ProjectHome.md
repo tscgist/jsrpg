@@ -1,0 +1,1 @@
+jQuery is too much fun not to work with, JSON and HTML5's Local Storage seems like a natural fit to store game state, and let's face it, it's been a while since I developed an RPG.
